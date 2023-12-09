@@ -6,7 +6,16 @@
 */
 
 function countVowels(str) {
-    // Your code here
-}
+    let vowels = ['a','e','i','o','u'];
+    let count = 0;
 
+    let arr = str.toLowerCase().split('');
+    for(let i of arr){
+      if(vowels.includes(i)){
+        count = count +1; 
+      }
+    }
+    return count;
+}
+console.log(countVowels('Animesh'));
 module.exports = countVowels;
