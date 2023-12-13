@@ -4,7 +4,18 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  const regex = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
+  let strLower = str.toLowerCase().replaceAll(' ','');
+  strLower = strLower.replaceAll(regex, '')
+  let strReversed = strLower.split('').reverse().join('');
+  console.log(strLower);
+  console.log(strReversed)
+  if(strLower === strReversed){
+    return true;
+  }else{
+    return false;
+  }
+ 
 }
-
+console.log(isPalindrome('Was it a car or a cat I saw'))
 module.exports = isPalindrome;
