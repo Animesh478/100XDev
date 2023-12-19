@@ -6,7 +6,18 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  let expenses = {};
+  for(let txn of transactions){
+    expenses[txn.category] = (expenses[txn.category] || 0) + txn.price;
+  };
+
+  let output = [];
+  for(let category of Object.keys(expenses)){
+    output.push({category: category, totalAmountSpent: expenses[category]})
+  };
+  return output;
 }
+let transaction = [{itemName:'pen',category:'stationary', price:200}, {itemName:'pants',category:'dress', price:400}, {itemName:'pencil',category:'dress', price:200}];
+console.log(calculateTotalSpentByCategory(transaction));
 
 module.exports = calculateTotalSpentByCategory;
